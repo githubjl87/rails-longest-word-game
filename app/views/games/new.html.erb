@@ -1,0 +1,16 @@
+<div class= "container">
+<h1>NEW GAME</h1>
+<%  @letters.each do |letter|  %>
+<p class= "btn btn-primary"><%= letter  %></p>
+<% end %>
+<form action="score" method="post" data-turbo="false" class="input-group">
+  <!-- ... -->
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :lettersArray, @letters %>
+
+  <input type="text" name="answer" value='<%= params[:answer] %>' class="form-control w-50">
+    <div class="input-group-append">
+    <input type="submit" value="play" class="btn btn-primary">
+</div>
+</form>
+</div>
